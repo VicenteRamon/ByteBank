@@ -1,25 +1,19 @@
-﻿using bytebank;
-
-ContaCorrente contaDoAndre = new ContaCorrente();
-contaDoAndre.titular = "Andre Silva";
-contaDoAndre.numero_agencia = 15;
-contaDoAndre.conta = "1010-x";
-contaDoAndre.saldo = 100;
-
-Console.WriteLine($"Saldo da conta do Andre = R${contaDoAndre.saldo}");
+﻿using bytebank.Contas;
+using bytebank.Titular;
 
 
-contaDoAndre.Depositar(100);
+ContaCorrente conta = new ContaCorrente();
+conta.Titular = new Cliente();
+conta.Titular.Nome = "Jose das quantas";
+conta.Conta = "1010-x";
+conta.Numero_agencia = 15;
+conta.SetSaldo(-50);
 
-Console.WriteLine($"Saldo da conta do Andre pós-deposito = R${contaDoAndre.saldo}");
+ContaCorrente contaMaria = new ContaCorrente();
+contaMaria.Titular = new Cliente();
+contaMaria.SetSaldo(50);
 
-if (contaDoAndre.Sacar(300) == true)
-{
-    Console.WriteLine($"Saldo da conta do Andre pós-saque = R${contaDoAndre.saldo}");
-}
-else
-{
-    Console.WriteLine("Tem grana não meu fi!!");
-}
+
+Console.WriteLine(conta.GetSaldo());
 
 
