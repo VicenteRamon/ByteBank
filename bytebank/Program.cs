@@ -77,6 +77,13 @@ void UsarSistema()
     sistema.Logar(caio, "888");
 }
 
+Cliente joaozin = new("Joãozin da Beterraba", "25698654755", "Plantador");
+
+Console.WriteLine(joaozin.ToString());
+
+
+
+
 
 
 

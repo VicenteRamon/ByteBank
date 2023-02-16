@@ -12,6 +12,11 @@ namespace bytebank.Titular
         public string Cpf { get; set; }
         public string Profissao { get; set; }
 
+        public override string ToString()
+        {
+            return $"Nome: {this.Nome} \nCPF: {this.Cpf} \nProfissão: {this.Profissao}";
+        }
+
 
         public Cliente(string nome, string cpf, string profissao)
         {
