@@ -1,4 +1,5 @@
 ﻿using bytebank.Titular;
+using bytebank.Utilitario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,8 @@ namespace bytebank.Contas
             }
             else
             {
-                return false;
+                ContadorSaquesNaoPermitidos++;
+                throw new SaldoInsuficienteException("Saldo insuficiente, você esta liso!!");
             }
 
         }
@@ -50,7 +52,8 @@ namespace bytebank.Contas
         {
             if (saldo < valor)
             {
-                return false;
+                ContadorTransferenciasNaoPermitidas++;
+                throw new SaldoInsuficienteException("Saldo insuficiente, você esta liso!!");
             }
             else
             {
@@ -77,6 +80,10 @@ namespace bytebank.Contas
             return this.saldo;
         }
 
+        public int ContadorSaquesNaoPermitidos { get; private set; }
+        public int ContadorTransferenciasNaoPermitidas { get; private set; }
+
+
         public ContaCorrente(Cliente titular, int numero_agencia, string numero_conta)
         {
             this.Titular = titular;
@@ -88,14 +95,14 @@ namespace bytebank.Contas
                 throw new ArgumentException("Numero de agência menor ou igual a zero!", nameof(numero_agencia));
             }
 
-            //try
-            //{
-            //    TaxaOperacao = 30 / TotalDeContasCriadas;
-            //}
-            //catch(DivideByZeroException)
-            //{
-            //    Console.WriteLine("Ocorreu um erro! não é possivel fazer uma divisão por zero!");
-            //};
+            try
+            {
+                TaxaOperacao = 30 / TotalDeContasCriadas;
+            }
+            catch(DivideByZeroException)
+            {
+                Console.WriteLine("Ocorreu um erro! não é possivel fazer uma divisão por zero!");
+            };
 
             TotalDeContasCriadas++;
         }
