@@ -7,12 +7,14 @@ using bytebank.Utilitario;
 using System.Collections.Concurrent;
 using System.Net.Http.Headers;
 using System.Numerics;
-
+using System.Runtime.CompilerServices;
 
 Console.WriteLine("Bem vindo ao Byte bank");
 
 //TestaArray();
 //TestaBuscarPalavra();
+
+
 void TestaArray()
 {
     int idade = 30;
@@ -59,14 +61,17 @@ void TestaBuscarPalavra()
     }
 }
 
+void CriaAmostra()
+{
+    Array amostra = Array.CreateInstance(typeof(double), 5);
 
-Array amostra = Array.CreateInstance(typeof(double), 5);
+    amostra.SetValue(5.9, 0);
+    amostra.SetValue(1.8, 1);
+    amostra.SetValue(7.1, 2);
+    amostra.SetValue(10, 3);
+    amostra.SetValue(6.9, 4);
 
-amostra.SetValue(5.9, 0);
-amostra.SetValue(1.8, 1);
-amostra.SetValue(7.1, 2);
-amostra.SetValue(10, 3);
-amostra.SetValue(6.9, 4);
+}
 
 void TestaMediana(Array array)
 {
@@ -91,14 +96,14 @@ void TestaMediana(Array array)
 
 
 
-Array Vl = Array.CreateInstance(typeof(double), 9);
+//Array Vl = Array.CreateInstance(typeof(double), 9);
 
-for (int i = 0; i < Vl.Length; i++)
-{
-    Console.WriteLine($"Insira o {i + 1}ª valor: ");
-    double input = Convert.ToDouble(Console.ReadLine());
-    Vl.SetValue(input, i);
-}
+//for (int i = 0; i < Vl.Length; i++)
+//{
+//    Console.WriteLine($"Insira o {i + 1}ª valor: ");
+//    double input = Convert.ToDouble(Console.ReadLine());
+//    Vl.SetValue(input, i);
+//}
 
 
 void CaMedia(Array array)
@@ -122,4 +127,53 @@ void CaMedia(Array array)
     Console.WriteLine($"A media do array é {metade}");
 }
 
-CaMedia(Vl);
+
+void TestaArrayDeContas()
+{
+
+    Cliente[] ListaDeClientes = new Cliente[]
+    {
+        new Cliente("Ramon","12125452154","Estudante"),
+        new Cliente("Cássia","89658745896","Estudante"),
+        new Cliente("Vicente","11125444785","Estudante")
+
+    };
+
+    ContaCorrente[] ListaDeContas = new ContaCorrente[]
+    {
+        new ContaCorrente(ListaDeClientes[0],2515,"52155-8"),
+        new ContaCorrente(ListaDeClientes[1],5869,"58693-9"),
+        new ContaCorrente(ListaDeClientes[2],2511,"11111-1")
+    };
+
+    for (int i = 0; i < ListaDeContas.Length; i++)
+    {
+        Console.WriteLine($"Indice: {i} Conta Corrente {ListaDeContas[i].Conta}");
+    }
+
+    Console.WriteLine(ContaCorrente.TaxaOperacao);
+}
+
+//TestaArrayDeContas();
+
+Cliente Ramon = new Cliente("Ramon","56985698569","Estudante");
+Cliente Cassia = new Cliente("Cássia", "56985698569", "Estudante");
+Cliente Vicente = new Cliente("Vicente", "56985698569", "Estudante");
+
+ContaCorrente vicente = new ContaCorrente(Vicente, 25632, "5263-8");
+
+ListaDeContasCorrentes lista = new ListaDeContasCorrentes();
+lista.Adicionar(new ContaCorrente(Ramon, 5658, "526562-5"));
+lista.Adicionar(new ContaCorrente(Cassia, 5658, "526562-5"));
+lista.Adicionar(vicente);
+
+lista.mostrar();
+
+Console.WriteLine("===========");
+
+lista.Remover(vicente);
+
+lista.mostrar();
+
+
+

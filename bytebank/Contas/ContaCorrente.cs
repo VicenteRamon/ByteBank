@@ -19,7 +19,7 @@ namespace bytebank.Contas
         private int numero_agencia;
         public int Numero_agencia
         {
-            get { return this.Numero_agencia; }
+            get { return Numero_agencia; }
             private set { 
                     if(value > 0)
                         this.numero_agencia= value;
