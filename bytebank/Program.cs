@@ -175,5 +175,9 @@ lista.Remover(vicente);
 
 lista.mostrar();
 
+for (int i = 0; i < lista.Tamanho; i++)
+{
+
+}
 
 
