@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 
 Console.WriteLine("Bem vindo ao Byte bank");
 
+#region
 //TestaArray();
 //TestaBuscarPalavra();
 
@@ -156,28 +157,29 @@ void TestaArrayDeContas()
 
 //TestaArrayDeContas();
 
-Cliente Ramon = new Cliente("Ramon","56985698569","Estudante");
-Cliente Cassia = new Cliente("Cássia", "56985698569", "Estudante");
-Cliente Vicente = new Cliente("Vicente", "56985698569", "Estudante");
+//Cliente Ramon = new Cliente("Ramon","56985698569","Estudante");
+//Cliente Cassia = new Cliente("Cássia", "56985698569", "Estudante");
+//Cliente Vicente = new Cliente("Vicente", "56985698569", "Estudante");
 
-ContaCorrente vicente = new ContaCorrente(Vicente, 25632, "5263-8");
+//ContaCorrente vicente = new ContaCorrente(Vicente, 25632, "5263-8");
 
-ListaDeContasCorrentes lista = new ListaDeContasCorrentes();
-lista.Adicionar(new ContaCorrente(Ramon, 5658, "526562-5"));
-lista.Adicionar(new ContaCorrente(Cassia, 5658, "526562-5"));
-lista.Adicionar(vicente);
+//ListaDeContasCorrentes lista = new ListaDeContasCorrentes();
+//lista.Adicionar(new ContaCorrente(Ramon, 5658, "526562-5"));
+//lista.Adicionar(new ContaCorrente(Cassia, 5658, "526562-5"));
+//lista.Adicionar(vicente);
 
-lista.mostrar();
+//lista.mostrar();
 
-Console.WriteLine("===========");
+//Console.WriteLine("===========");
 
-lista.Remover(vicente);
+//lista.Remover(vicente);
 
-lista.mostrar();
+//lista.mostrar();
 
-for (int i = 0; i < lista.Tamanho; i++)
-{
-
-}
-
+//for (int i = 0; i < lista.Tamanho; i++)
+//{
+//    ContaCorrente conta = lista[i];
+//    Console.WriteLine($"Indice [{i}] = Conta  {conta.Conta}/{conta.Numero_agencia}");
+//}
+#endregion
 

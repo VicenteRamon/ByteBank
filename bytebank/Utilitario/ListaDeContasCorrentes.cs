@@ -83,5 +83,13 @@ namespace bytebank.Utilitario
            }
         }
 
+
+        public ContaCorrente this[int indice]
+            {
+                get
+                {
+                return RecuperaIndice(indice);
+                }
+            }
     }
 }
