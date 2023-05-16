@@ -5,9 +5,11 @@ using bytebank.SistemaInterno;
 using bytebank.Titular;
 using bytebank.Utilitario;
 using System.Collections.Concurrent;
+using System.Drawing;
 using System.Net.Http.Headers;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+
 
 Console.WriteLine("Bem vindo ao Byte bank");
 
@@ -182,4 +184,5 @@ void TestaArrayDeContas()
 //    Console.WriteLine($"Indice [{i}] = Conta  {conta.Conta}/{conta.Numero_agencia}");
 //}
 #endregion
+
 
